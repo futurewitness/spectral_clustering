@@ -1,0 +1,185 @@
+\documentclass[11pt]{article}
+
+\usepackage{epsfig}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{theorem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+% \usepackage{layout}% if you want to see the layout parameters
+% and now use \layout command in the body
+
+% This is the stuff for normal spacing
+\makeatletter
+ \setlength{\textwidth}{6in}
+ \setlength{\oddsidemargin}{0in}
+ \setlength{\evensidemargin}{0.5in}
+ \setlength{\topmargin}{0in}
+ \setlength{\textheight}{9in}
+ \setlength{\headheight}{0pt}
+ \setlength{\headsep}{0pt}
+ \setlength{\marginparwidth}{59pt}
+
+ \setlength{\parindent}{0pt}
+ \setlength{\parskip}{5pt plus 1pt}
+ \setlength{\theorempreskipamount}{5pt plus 1pt}
+ \setlength{\theorempostskipamount}{0pt}
+ \setlength{\abovedisplayskip}{8pt plus 3pt minus 6pt}
+
+
+\newenvironment{proof}{{\bf Proof:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofof}[1]{{\bf Proof of #1:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofofnobox}[1]{{\bf#1:  }}{}
+\newenvironment{example}{{\bf Example:  }}{\hfill\rule{2mm}{2mm}}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+% math notation
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\Z}{\ensuremath{\mathbb Z}}
+\newcommand{\N}{\ensuremath{\mathbb N}}
+\newcommand{\F}{\ensuremath{\mathbb F}}
+
+\newcommand{\size}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\ceil}[1]{\ensuremath{\left\lceil#1\right\rceil}}
+\newcommand{\floor}[1]{\ensuremath{\left\lfloor#1\right\rfloor}}
+
+
+% anupam's abbreviations
+\newcommand{\mnote}[1]{\normalmarginpar \marginpar{\tiny #1}}
+
+
+% vectors
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document begins here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\headings}{
+\large{\textbf{YOUR NAME GOES HERE \hfill 21-241 Fall 2019}\\
+\textbf{Homework 4 \hfill Due Friday, September 20}}\\
+\rule[0.1in]{\textwidth}{0.01in}
+%\thispagestyle{empty}
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\headings
+
+\begin{enumerate}
+\section*{Required Problems}
+ \item (Strang 3.2.32, see Page 144 for picture and matrix $A$) Kirchoff's Current Law $A^T\vec{y} = \vec{0}$ says that \textit{current in = current out} at every node.  At node 1 this is $y_3 = y_1 + y_4$.  Write the four equations for Kirchoff's Law at the four nodes (arrows show the positive direction of each $y$). Reduce $A^T$ to $R$ and find three special solutions in the nullspace of $A^T$ (4 by 6 matrix).
+ 
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+ \item (from Strang 3.3.1)  Find the RREF for the matrix $A$.  Then describe the column space and null space for $A$.  Finally, describe a complete solution to $A \vec{x} = \vec{b}$.
+ 
+ \[ A = \begin{bmatrix}2 & 4 & 6 & 4 \\ 2 & 5 & 7 & 6 \\ 2 & 3 & 5 & 2 \end{bmatrix}, \quad 
+ \vec{b} = \begin{bmatrix} b_1 \\ b_2 \\ b_3 \end{bmatrix} = \begin{bmatrix} 4 \\ 3 \\ 5 \end{bmatrix}\]
+ 
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+ 
+ \item (Strang 3.3.6) What conditions on $b_1$, $b_2$, $b_3$, $b_4$ make each system solvable?  Find $\vec{x}$ in that case:
+
+ \[  \begin{bmatrix} 1 & 2 \\ 2 & 4 \\ 2 & 5 \\ 3 & 9 \end{bmatrix}
+ \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}=
+ \begin{bmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{bmatrix}, \quad 
+\begin{bmatrix} 1 & 2 & 3\\ 2 & 4 & 6 \\ 2 & 5 & 7\\ 3 & 9 & 12\end{bmatrix}
+ \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}=
+ \begin{bmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{bmatrix}\] 
+
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+ 
+ \item (Strang 3.4.1) Show that $\vec{v}_1, \vec{v}_2, \vec{v}_3$ are independent but $\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4$ are dependent:
+\[ \vec{v}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, 
+\vec{v}_2 = \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} ,
+\vec{v}_3 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} ,
+\vec{v}_4 = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix} .\]
+Solve $c_1\vec{v}_1 + c_2\vec{v}_2 + c_3 \vec{v}_3 + c_4\vec{v}_4 = \vec{0}$ or $A\vec{x} = \vec{0}$.  The $\vec{v}$'s go in the columns of $A$.
+ 
+\begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item (Strang 3.5.23) $U$ comes from $A$ by subtracting row 1 from row 3:
+
+\[A= \begin{bmatrix} 1 & 3 & 2 \\ 0 & 1 & 1 \\ 1 & 3 & 2 \end{bmatrix} \text{ and } 
+U= \begin{bmatrix} 1 & 3 & 2 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{bmatrix}\]
+
+Find bases for the two column spaces.  Find bases for the two row spaces. Find bases for the two nullspaces.  Which spaces stay fixed in elimination?
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+ \item Let $A$ be a matrix and $\vec{x}$ and $\vec{y}$ be vectors. 
+ \begin{enumerate}
+ \item  Prove that $A\vec{x} = A\vec{y}$ if and only if $(\vec{x} -\vec{y}) \in N(A)$.
+\item Use Part (a) to explain why if $A\vec{x}_p = \vec{b}$, then any other solution to the matrix equation $A\vec{x} = \vec{b}$ has the form $\vec{x} = \vec{x}_p + \vec{x}_n$, where $\vec{x}_n$ is in $N(A)$.
+\end{enumerate}
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item In this problem we'll carefully prove an important property of rank.
+\begin{enumerate}
+\item Let $a$ be a scalar. Prove that $\{\vec{w}_1, \vec{w}_2, \ldots, \vec{w}_{m}\}$ is a linearly independent set of vectors if and only if the set $\{\vec{w}_1 + a\vec{w}_2, \vec{w}_2, \ldots, \vec{w}_{m}\}$ is also linearly independent.
+\item Let $a \neq 0$ be a scalar. Prove that $\{\vec{w}_1, \vec{w}_2, \ldots, \vec{w}_{m}\}$ is a linearly independent set of vectors if and only if the set $\{a\vec{w}_1, \vec{w}_2, \ldots, \vec{w}_{m}\}$ is also linearly independent.
+\item Use Parts (a) and (b) to explain why the number of linearly independent rows in a matrix is not changed by row operations.
+\item Use Part (c) to explain why the rank of a matrix is equal to the number of linearly independent rows.
+\end{enumerate}
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+\section*{Optional Problems}
+
+\item Prove any linearly  independent  set of vectors in $\R^n$ can be expanded to a basis for $\R^n$.
+\item Prove any set of vectors whose span is $\R^n$ contains a basis for $\R^n$.
+\item Prove that the set of solutions to any matrix equation $A\vec{x} = \vec{b}$ is a set of all affine combinations of some set of vectors.
+
+
+\end{enumerate}
+
+
+\end{document}

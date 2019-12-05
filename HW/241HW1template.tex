@@ -1,0 +1,202 @@
+\documentclass[11pt]{article}
+
+\usepackage{epsfig}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{theorem}
+\usepackage{graphicx}
+% \usepackage{layout}% if you want to see the layout parameters
+% and now use \layout command in the body
+
+% This is the stuff for normal spacing
+\makeatletter
+ \setlength{\textwidth}{6in}
+ \setlength{\oddsidemargin}{0in}
+ \setlength{\evensidemargin}{0.5in}
+ \setlength{\topmargin}{0in}
+ \setlength{\textheight}{9in}
+ \setlength{\headheight}{0pt}
+ \setlength{\headsep}{0pt}
+ \setlength{\marginparwidth}{59pt}
+
+ \setlength{\parindent}{0pt}
+ \setlength{\parskip}{5pt plus 1pt}
+ \setlength{\theorempreskipamount}{5pt plus 1pt}
+ \setlength{\theorempostskipamount}{0pt}
+ \setlength{\abovedisplayskip}{8pt plus 3pt minus 6pt}
+
+
+\newenvironment{proof}{{\bf Proof:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofof}[1]{{\bf Proof of #1:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofofnobox}[1]{{\bf#1:  }}{}
+\newenvironment{example}{{\bf Example:  }}{\hfill\rule{2mm}{2mm}}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+% math notation
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\F}{\ensuremath{\mathbb F}}
+
+% vectors
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document begins here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\headings}{
+\large{\textbf{YOUR NAME GOES HERE \hfill 21-241 Fall 2019}\\
+\textbf{Homework 1 \hfill Due Friday, August 30}}\\
+\rule[0.1in]{\textwidth}{0.01in}
+%\thispagestyle{empty}
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\headings
+
+\begin{enumerate}
+\section*{Required Problems}
+
+\item Suppose $m$, $n$, and $p$ are distinct positive integers, and
+\begin{itemize}
+\item  $A$ is an $m \times n$ matrix, 
+\item $B$ is an $n \times p$ matrix, 
+\item $C$ is an $m \times p$ matrix, 
+\item $x$ is a vector with $n$ coordinates, and 
+\item $y$ is a vector with $p$ coordinates.
+\end{itemize}
+
+For each of the following expressions, describe what kind of object is produced, or if the expression is not well-defined, explain why. You may wish to experiment with some random matrices and vectors in Julia to verify your answers.
+\begin{enumerate}
+\item $Ax$
+\item $xA$
+\item $AB$
+\item $AC$
+\item $BC$
+\item $Ax + Bx$
+\item $By + Cy$
+\item $(B+C)y$
+\item $(AB)y$
+\item $A(By)$
+\item $3A$
+\item $-5y$
+\item $x+y$
+\item $x \cdot y$
+\item $AA^T$
+\item $A^TA$
+\end{enumerate}
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+
+\item Prove that scalar multiplication distributes over vector addition.  That is, prove that if $\vec{v}$ and $\vec{w}$ are vectors in $\R^n$, and $a$ is a real number, that 
+\[a(\vec{v}+\vec{w}) = a\vec{v} + a\vec{w}.\]
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+
+
+\item Let $A$, $B$, and $C$ be matrices, $x$ and $y$ be vectors, and $c$ and $d$ be scalars. Use Julia to experiment with some random matrices, vectors, and scalars.  Which of the following equations seem to always be true? (Assume in each case that the dimensions of the matrices and vectors are such that the expressions are well-defined) %put in a note about how to detect whether two matrices are really equal (roundoff errors).
+\begin{enumerate}
+\item $(AB)C = A(BC)$
+\item $AB=BA$
+\item $A(x+y) = Ax + Ay$
+\item $A(Bx) = (AB)x$
+\item $A(cx+dy) = c(Ax) + d(Ay)$
+\item $c(A+B) = cA+cB$
+\item $c(AB) = (cA)(cB)$
+\item $A(B+C) = AB+AC$
+\item $(A+B)C = AC + BC$
+\item $(A+B) + C = A + (B+C)$
+\item $A+B = B+A$
+\end{enumerate}
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+
+
+\item An $n \times n$ \textit{permutation matrix} is a matrix with exactly one 1 in each row and column, and zeros everywhere else. The \textit{standard basis} (standard set of basis vectors) for $\R^n$ is the set of vectors $\{\vec{e}_1, \vec{e}_2, \ldots, \vec{e}_n \}$, where $\vec{e}_i$ is the vector with $n$ coordinates, all zero except the $i$th coordinate is equal to 1.  For example the standard basis for $\R^4$ is 
+\[ \{\vec{e}_1, \vec{e}_2, \vec{e}_3, \vec{e}_4 \} =  \{(1,0,0,0) , (0,1,0,0) , (0,0,1,0), (0,0,0,1)\}.\]
+\begin{enumerate}
+\item Compute the dot product $\vec{e}_i \cdot \vec{e}_j$ 
+\begin{itemize}
+\item if $i=j$,
+\item if $i \neq j$.
+\end{itemize}
+\item Find the product $P_1P_2$ of the following two permutation matrices.  
+\[ P_1 = \begin{bmatrix} 0 & 1 & 0 & 0 \\ 0& 0& 0 & 1 \\ 1& 0 & 0 & 0 \\0& 0& 1 & 0\end{bmatrix}, \hfill P_2 = \begin{bmatrix} 0 & 1 & 0 & 0 \\ 0& 0& 1 & 0 \\ 1& 0 & 0 & 0 \\0& 0& 0 & 1\end{bmatrix}\]
+\item How are the rows of a $4 \times n$ matrix $A$ permuted by multiplication on the left by $P_1$, $P_2$, and $P_1P_2$ (i.e. which rows of $A$ correspond to which rows of $P_1A$, etc.)? 
+\item For any $n \times n$ permutation matrix $P$, explain why $PP^T=I$, where $I$ is the $n \times n$ identity matrix.
+\end{enumerate}
+
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+
+\item (Strang 1.1.7) In the $xy$ plane mark all nine of these linear combinations:
+
+\[c\begin{bmatrix}2 \\ 2\end{bmatrix} + d\begin{bmatrix}0 \\ 1\end{bmatrix} \text{ with } c=0,1,2 \text{ and } d=0,1,2.\]
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+
+\item (Strang 1.1.10, see Page 9 of the textbook for a picture) Which point of the cube is $\vec{i} + \vec{j}$?  Which point is the vector sum of $\vec{i} = (1,0,0)$ and $\vec{j} = (0,1,0)$ and $\vec{k} = (0,0,1)$?  Describe all points $(x,y,z)$ in the cube.
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+
+\item (Strang 1.1.13a,b, see Page 9 of the textbook for a picture)
+\begin{enumerate}
+\item What is the sum $\vec{V}$ of the twelve vectors that go from the center of a clock to the hours 1:00, 2:00, $\ldots$ , 12:00?
+\item If the 2:00 vector is removed, why do the 11 remaining vectors add to 8:00?
+\end{enumerate}
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+
+\section*{Optional Problems}
+
+\item Verify that the field $\F_2$ satisfies all nine field axioms. Show that set of numbers $\{0,1,2,3\}$ with addition and multiplication $\mod{4}$ is not a field.  For which positive integers $n$ is the set of numbers $\{0,1,2, \ldots, n\}$ with addition and multiplication $\mod{n}$ a field?
+
+\item How many $n \times n$ permutation matrices are there?
+
+\item Write code in Julia to multiply two matrices.
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+
+\usepackage{epsfig}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{theorem}
+\usepackage{graphicx}
+% \usepackage{layout}% if you want to see the layout parameters
+% and now use \layout command in the body
+
+% This is the stuff for normal spacing
+\makeatletter
+ \setlength{\textwidth}{6in}
+ \setlength{\oddsidemargin}{0in}
+ \setlength{\evensidemargin}{0.5in}
+ \setlength{\topmargin}{0in}
+ \setlength{\textheight}{9.5in}
+ \setlength{\headheight}{0pt}
+ \setlength{\headsep}{0pt}
+ \setlength{\marginparwidth}{59pt}
+
+ \setlength{\parindent}{0pt}
+ \setlength{\parskip}{5pt plus 1pt}
+ \setlength{\theorempreskipamount}{5pt plus 1pt}
+ \setlength{\theorempostskipamount}{0pt}
+ \setlength{\abovedisplayskip}{8pt plus 3pt minus 6pt}
+
+
+\newenvironment{proof}{{\bf Proof:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofof}[1]{{\bf Proof of #1:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofofnobox}[1]{{\bf#1:  }}{}
+\newenvironment{example}{{\bf Example:  }}{\hfill\rule{2mm}{2mm}}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+% math notation
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\F}{\ensuremath{\mathbb F}}
+
+
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document begins here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\headings}{
+\large{\textbf{YOUR NAME GOES HERE \hfill 21-241 Fall 2019}\\
+\textbf{Homework 0 \hfill Due Wednesday, August 28}}\\
+\rule[0.1in]{\textwidth}{0.01in}
+%\thispagestyle{empty}
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\headings
+You must submit this file as a pdf through Gradescope (a link is on our Canvas page) by Wednesday, August 28 at 8pm.  You may do this by handwriting and scanning your document, typing it in your favorite word processor, or typesetting using \LaTeX.  A simple way to get started with \LaTeX \ is at \texttt{overleaf.com}, though you may also wish to download a compiler, such as MiKTeX (\texttt{miktex.org}). Since it is a worthwhile skill to be able to typeset with \LaTeX, (including for asking questions on Piazza!), beginning with Homework 2, assignments typeset with \LaTeX \ will earn one bonus point.
+
+
+
+\begin{enumerate}
+\item Log into \texttt{juliabox.com}.  Follow the path 
+
+\begin{center}
+tutorials $\Rightarrow$ introductory-tutorials $\Rightarrow$ intro-to-julia.  
+\end{center}
+
+What number is the tutorial for Plotting?
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\item Download the Julia notebook for Lecture 1 from the course webpage, upload it to \texttt{juliabox.com}, and open it.  What is the first line of code?
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\item Which recitation section are you in?  
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\item What is the name of your recitation instructor?
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\item Why are you taking 21-241?  Do you have any particular interests, concerns, or anything else you would like the teaching staff to know?
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\end{enumerate}
+
+
+
+\end{document}

@@ -1,0 +1,211 @@
+\documentclass[11pt]{article}
+
+\usepackage{epsfig}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{theorem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+% \usepackage{layout}% if you want to see the layout parameters
+% and now use \layout command in the body
+
+% This is the stuff for normal spacing
+\makeatletter
+ \setlength{\textwidth}{6in}
+ \setlength{\oddsidemargin}{0in}
+ \setlength{\evensidemargin}{0.5in}
+ \setlength{\topmargin}{0in}
+ \setlength{\textheight}{9in}
+ \setlength{\headheight}{0pt}
+ \setlength{\headsep}{0pt}
+ \setlength{\marginparwidth}{59pt}
+
+ \setlength{\parindent}{0pt}
+ \setlength{\parskip}{5pt plus 1pt}
+ \setlength{\theorempreskipamount}{5pt plus 1pt}
+ \setlength{\theorempostskipamount}{0pt}
+ \setlength{\abovedisplayskip}{8pt plus 3pt minus 6pt}
+
+
+\newenvironment{proof}{{\bf Proof:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofof}[1]{{\bf Proof of #1:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofofnobox}[1]{{\bf#1:  }}{}
+\newenvironment{example}{{\bf Example:  }}{\hfill\rule{2mm}{2mm}}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+% math notation
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\Z}{\ensuremath{\mathbb Z}}
+\newcommand{\N}{\ensuremath{\mathbb N}}
+\newcommand{\F}{\ensuremath{\mathbb F}}
+\newcommand{\C}{\ensuremath{\mathbb C}}
+
+\newcommand{\size}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\ceil}[1]{\ensuremath{\left\lceil#1\right\rceil}}
+\newcommand{\floor}[1]{\ensuremath{\left\lfloor#1\right\rfloor}}
+
+
+% anupam's abbreviations
+\newcommand{\mnote}[1]{\normalmarginpar \marginpar{\tiny #1}}
+
+
+% vectors
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document begins here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\headings}{
+\large{\textbf{YOUR NAME GOES HERE \hfill 21-241 Fall 2019}\\
+\textbf{Homework 10 \hfill Due Friday, November 8}}\\
+\rule[0.1in]{\textwidth}{0.01in}
+%\thispagestyle{empty}
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\headings
+
+
+
+\begin{enumerate}
+\section*{Required Problems}
+\item Let $x$ and $y$ be complex numbers, and let $\overline{x}$ denote the complex conjugate of $x$. 
+\begin{enumerate}
+\item  Prove that $(\overline{x})(\overline{y}) = \overline{xy}$.
+\item Prove that $\overline{x} + \overline{y} = \overline{x+y}$.
+\end{enumerate}
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item (Strang 6.4.1) Which of these matrices $ASB$ will be symmetric with eigenvalues $1$ and $-1$?
+\[ 
+\begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix} \quad
+ \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix} \quad
+  \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}
+\]
+$B=A^T$ doesn't do it.  $B=A^{-1}$ doesn't do it. $B= \quad = \quad$ will succeed.  So $B$ must be an \hspace{1in} matrix.
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item (Strang 6.4.13) Write $S$ and $B$ in the form $\lambda_1 \vec{x}_1\vec{x}_1^T + \lambda_2 \vec{x}_2\vec{x}_2^T$ of the Spectral theorem $Q \Lambda Q^T$:
+
+\[S = \begin{bmatrix} 3 & 1 \\ 1 & 3 \end{bmatrix} \quad B = \begin{bmatrix} 9 & 12 \\ 12 & 16 \end{bmatrix}  \quad \text{ (keep }
+\lVert\vec{x}_1 \rVert = \lVert\vec{x}_2 \rVert = 1).\]
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item (Strang 6.5.7) Test to see if $A^TA$ is positive definite in each case: $A$ needs independent columns.
+
+\[A = \begin{bmatrix} 1 & 2 \\ 0 & 3 \end{bmatrix} \text{ and }
+A = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 1 \end{bmatrix} \text{ and }
+A = \begin{bmatrix} 1 & 1 & 2 \\ 1 & 2 & 1 \end{bmatrix}
+\]
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+
+\item (Strang 6.5.22) From $S = Q \Lambda Q^T$ compute the positive definite symmetric square root $Q \sqrt{\Lambda} Q^T$ of each matrix.  Check that this square root gives $A^TA = S$:
+
+\[S = \begin{bmatrix} 5 & 4 \\ 4 & 5 \end{bmatrix} \quad \text{ and } \quad
+S = \begin{bmatrix} 10 & 6 \\ 6 & 10  \end{bmatrix}. 
+\]
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item (Strang 7.2.1) Find the eigenvalues of these matrices.  Then find singular values from $A^TA$:
+
+\[A = \begin{bmatrix} 0 & 4 \\ 0 & 0 \end{bmatrix} \quad
+A = \begin{bmatrix} 0 & 4 \\ 1 & 0 \end{bmatrix}.
+\]
+
+For each $A$, construct $V$ from the eigenvectors  of $A^TA$ and $U$ from the eigenvectors of $AA^T$.  Check that $A = U \Sigma V^T$.
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item (Strang 7.2.4) Compute $A^TA$ and $AA^T$ and their eigenvalues and unit eigenvectors for $V$ and $U$.
+
+\[ \textbf{Rectangular matrix} \quad A = \begin{bmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \end{bmatrix}.\]
+Check $AV = U \Sigma$ (this decides $\pm$ signs in $U$). $\Sigma $ has the same shape as $A$: $2 \times 3$.
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item (Strang 7.2.5)
+\begin{enumerate}
+\item  The row space of $A = \begin{bmatrix} 1 & 1  \\ 3 & 3  \end{bmatrix}$ is 1-dimensional.  Find $\vec{v}_1$ in the row space and $\vec{u}_1$ in the column space.  What is $\sigma_1$?  Why is there no $\sigma_2$?
+\item Choose $\vec{v}_2$ and $\vec{u}_2$ in $V$ and $U$.  Then $A = U \Sigma V^T = \vec{u}_1 \sigma_1\vec{v}_1^T$ (one term only).
+\end{enumerate}
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+
+\section*{Optional Problems}
+
+\item Let $p$ be a polynomial with real coefficients.  Prove that $p(\overline{x}) = 0$ if and only if $p(x) = 0$.  Conclude that every real polynomial with odd degree has at least one real root.
+
+
+\item Prove that every entry on the diagonal of a positive definite matrix must be positive.
+
+\end{enumerate}
+
+
+
+\end{document}

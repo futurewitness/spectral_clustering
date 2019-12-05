@@ -1,0 +1,170 @@
+\documentclass[11pt]{article}
+
+\usepackage{epsfig}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{theorem}
+\usepackage{graphicx}
+% \usepackage{layout}% if you want to see the layout parameters
+% and now use \layout command in the body
+
+% This is the stuff for normal spacing
+\makeatletter
+ \setlength{\textwidth}{6in}
+ \setlength{\oddsidemargin}{0in}
+ \setlength{\evensidemargin}{0.5in}
+ \setlength{\topmargin}{0in}
+ \setlength{\textheight}{9in}
+ \setlength{\headheight}{0pt}
+ \setlength{\headsep}{0pt}
+ \setlength{\marginparwidth}{59pt}
+
+ \setlength{\parindent}{0pt}
+ \setlength{\parskip}{5pt plus 1pt}
+ \setlength{\theorempreskipamount}{5pt plus 1pt}
+ \setlength{\theorempostskipamount}{0pt}
+ \setlength{\abovedisplayskip}{8pt plus 3pt minus 6pt}
+
+
+\newenvironment{proof}{{\bf Proof:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofof}[1]{{\bf Proof of #1:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofofnobox}[1]{{\bf#1:  }}{}
+\newenvironment{example}{{\bf Example:  }}{\hfill\rule{2mm}{2mm}}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+% math notation
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\F}{\ensuremath{\mathbb F}}
+
+% vectors
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document begins here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\headings}{
+\large{\textbf{YOUR NAME GOES HERE \hfill 21-241 Fall 2019}\\
+\textbf{Homework 2 \hfill Due Friday, September 6}}\\
+\rule[0.1in]{\textwidth}{0.01in}
+%\thispagestyle{empty}
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\headings
+
+\begin{enumerate}
+\section*{Required Problems}
+
+\item (Strang 2.3.10) 
+\begin{enumerate}
+\item What 3 by 3 matrix $E_{13}$ will add row 3 to row 1?
+\item What matrix adds row 1 to row 3 and \textit{at the same time} row 3 to row 1?
+\item What matrix adds row 1 to row 3 and \textit{then} adds row 3 to row 1?
+\end{enumerate}
+
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\item (Strang 2.6.5) What matrix $E$ puts $A$ into a triangular form $EA=U$?  Multiply by $E^{-1} = L$ to factor $A$ into $LU$:
+
+\[A = \begin{bmatrix} 2 & 1 & 0 \\ 0 & 4 & 2 \\ 6 & 3 & 5 \end{bmatrix} \]
+
+
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+
+\item (Strang 2.7.22) Find the $PA = LU$ factorizations (and check them) for 
+\[A = \begin{bmatrix} 0 & 1 & 1 \\ 1 & 0 & 1 \\ 2 & 3 & 4 \end{bmatrix} \text{ and } A=  \begin{bmatrix} 1 & 2 & 0 \\ 2 & 4 & 1 \\ 1 & 1 & 1 \end{bmatrix}\]
+
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\item (Strang 2.6.10) Compute $L$ and $U$ for the symmetric matrix $A$:
+
+\[ A = \begin{bmatrix} a& a& a&a \\ a& b & b & b \\ a& b & c & c \\ a & b & c& d \end{bmatrix} \]
+
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\item (Strang 2.6.13) Solve $L\vec{c} = \vec{b}$ to find $\vec{c}$. Then solve $U\vec{x} = \vec{c}$ to find $\vec{x}$.  What was $A$?
+
+\[ L = \begin{bmatrix} 1 & 0 & 0 \\ 1 & 1 & 0 \\ 1 & 1 & 1 \end{bmatrix} \text{ and } U= \begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{bmatrix} \text{ and } \vec{b} = \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix}\]
+
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\item An \textbf{affine combination} of a set of vectors $\vec{v}_1, \vec{v_2}, \ldots, \vec{v_n}$ is a linear combination $a_1\vec{v}_1 + a_2 \vec{v_2} + \dots + a_n\vec{v_n}$ where $\sum_{i=1}^n a_i = 1$, i.e. the sum of the coefficients is equal to 1.
+\begin{enumerate}
+\item Suppose $A$ is a matrix and $\vec{b}$, $\vec{x}$, and $\vec{y}$ are vectors such that $\vec{x} \neq \vec{y}$, $A\vec{x} = \vec{b}$, and $A\vec{y} = \vec{b}$.  Prove that if $\vec{v}$ is an affine combination of $\vec{x}$ and $\vec{y}$, then $A\vec{v}=b$.  
+
+You may use the facts that if $c$ is a scalar, $\vec{x}$ and $\vec{y}$ are vectors, and $A$ is a matrix, then
+\begin{itemize}
+\item  $A(c\vec{x})) = c(A\vec{x})$, and 
+\item $A(\vec{x} +  \vec{y}) =  A\vec{x} +  A\vec{y}$.
+\end{itemize}
+
+\item Use Part (a) to explain why a system of linear equations cannot have exactly two solutions
+\item Use Julia to generate some random vectors in $\R^2$, and plot affine combinations of them.  What geometric object is formed by the set of all affine combinations of two vectors?
+\end{enumerate}
+
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\item A square matrix $A$ is \textbf{symmetric} if for all $i$ and $j$, $A_{ij} = A_{ji}$. Prove that for any $m \times n$ matrix $A$, $AA^T$ is a symmetric $m \times m$ matrix.
+
+
+\begin{sol}
+Write your solution here.
+\end{sol}
+
+\section*{Optional Problems}
+
+\item Prove that the identity matrix is unique, i.e. if some $n \times n$ matrix $A$ has the property that $A\vec{x}=\vec{x}$ for all $\vec{x} \in \R^n$, then $A=I$.
+
+\item Explain why it is always possible to change one element of a nonsingular matrix so that the result is singular.  Give an example to show the converse is not true, i.e. give an example of a singular matrix where no matter what element is changed, the result is still singular.
+
+\item Coding problems
+\begin{enumerate}
+\item Write Julia code that will return the $LU$ decomposition of a square nonsingular matrix $A$.
+\item Write Julia code that, given $b$ and a $PA=LU$ decomposition for the square matrix $A$, will return the solution $x$ to the matrix equation $Ax=b$.
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+
+
+\end{document}

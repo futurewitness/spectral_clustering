@@ -1,0 +1,222 @@
+\documentclass[11pt]{article}
+
+\usepackage{epsfig}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{theorem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+% \usepackage{layout}% if you want to see the layout parameters
+% and now use \layout command in the body
+
+% This is the stuff for normal spacing
+\makeatletter
+ \setlength{\textwidth}{6in}
+ \setlength{\oddsidemargin}{0in}
+ \setlength{\evensidemargin}{0.5in}
+ \setlength{\topmargin}{0in}
+ \setlength{\textheight}{9in}
+ \setlength{\headheight}{0pt}
+ \setlength{\headsep}{0pt}
+ \setlength{\marginparwidth}{59pt}
+
+ \setlength{\parindent}{0pt}
+ \setlength{\parskip}{5pt plus 1pt}
+ \setlength{\theorempreskipamount}{5pt plus 1pt}
+ \setlength{\theorempostskipamount}{0pt}
+ \setlength{\abovedisplayskip}{8pt plus 3pt minus 6pt}
+
+
+\newenvironment{proof}{{\bf Proof:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofof}[1]{{\bf Proof of #1:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofofnobox}[1]{{\bf#1:  }}{}
+\newenvironment{example}{{\bf Example:  }}{\hfill\rule{2mm}{2mm}}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+% math notation
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\Z}{\ensuremath{\mathbb Z}}
+\newcommand{\N}{\ensuremath{\mathbb N}}
+\newcommand{\F}{\ensuremath{\mathbb F}}
+\newcommand{\C}{\ensuremath{\mathbb C}}
+
+\newcommand{\size}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\ceil}[1]{\ensuremath{\left\lceil#1\right\rceil}}
+\newcommand{\floor}[1]{\ensuremath{\left\lfloor#1\right\rfloor}}
+
+
+% anupam's abbreviations
+\newcommand{\mnote}[1]{\normalmarginpar \marginpar{\tiny #1}}
+
+
+% vectors
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document begins here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\headings}{
+\large{\textbf{YOUR NAME GOES HERE \hfill 21-241 Fall 2019}\\
+\textbf{Homework 8 \hfill Due Friday, October 25}}\\
+\rule[0.1in]{\textwidth}{0.01in}
+%\thispagestyle{empty}
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\headings
+
+\begin{enumerate}
+\section*{Required Problems}
+
+
+\item (Strang 6.1.3) Compute the eigenvalues and eigenvectors of $A$ and $A^{-1}$. %Check the trace!
+
+\[ A = \begin{bmatrix} 0 & 2 \\ 1 & 1 \end{bmatrix} \text{ and } A^{-1} = \begin{bmatrix} -1/2 & 1 \\ 1/2 & 0 \end{bmatrix}.\]
+$A^{-1}$ has the \hspace{1in} eigenvectors as $A$.  When $A$ has eigenvalues $\lambda_1$ and $\lambda_2$, its inverse has eigenvalues \hspace{1in}.
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item (Strang 6.1.12) Find three eigenvectors for this matrix $P$ (Projection matrices have $\lambda = 1$ and $0$.):
+
+\[\textbf{Projection matrix} \hspace{.5in} P = \begin{bmatrix} .2 & .4 & 0 \\ .4 & .8 & 0 \\ 0 & 0 & 1  \end{bmatrix}\]
+
+If two eigenvectors share the same $\lambda$, so do all of their linear combinations.  Find an eigenvector of $P$ with no zero components.
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+\item (Strang 6.1.16) The determinant of $A$ equals the product $\lambda_1\lambda_2 \cdots \lambda_n$.  Start with the polynomial $\det(A-\lambda I)$ separated into its $n$ factors (always possible). Then set $\lambda = 0$:
+\[\det (A - \lambda I) = (\lambda_1 - \lambda)(\lambda_2 - \lambda) \cdots (\lambda_n - \lambda) \text{ so } \det A = \]
+Check this rule in Example 1 where the Markov matrix has $\lambda = 1$ and $1/2$.
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+\item (Strang 6.1.25) Suppose $A$ and $B$ have the same eigenvalues $\lambda_1, \ldots, \lambda_n$ with the same independent eigenvectors $\vec{x}_1, \ldots, \vec{x}_n$.  Then $A=B$.  Reason: Any vector $\vec{x}$ is a linear combination $c_1 \vec{x}_1 + \cdots + c_n \vec{x}_n$.  What is $A\vec{x}$?  What is $B\vec{x}$?
+
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item (Strang 6.2.16) Find $\Lambda$ and $X$ to diagonalize $A= \begin{bmatrix} .6 & .9 \\ .4 & .1 \end{bmatrix}$ (in Strang 6.2.15).  What is the limit of $\Lambda^k$ as $k \to \infty$?  What is the limit of $X\Lambda^kX^{-1}$?  In the columns of this limiting matrix you see the \hspace{1in}.
+
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item (Strang 6.2.29) Suppose the same $X$ diagonalizes both $A$ and $B$. They have the same eigenvectors in $A = X \Lambda_1 X^{-1}$ and $B = X \Lambda_2 X^{-1}$.  Prove that $AB = BA$.
+
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+\item Let $A$ be a matrix, and $\vec{x}$ and $\vec{y}$ be eigenvectors for $A$. Prove or disprove each of the following statements.
+\begin{enumerate}
+\item For all scalars $c \neq 0$, the vector $c\vec{x}$ is an eigenvector for $A$.
+\item For all integers $k \ge 1$, $x$ is an eigenvector for $A^k$.
+\item The vector $\vec{x} + \vec{y}$ is always an eigenvector for $A$.
+\end{enumerate}
+
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\section*{Optional Problems}
+
+\item Prove that if $A_1$ is similar to $A_2$ and $A_2$ is similar to $A_3$, then $A_1$ is similar to $A_3$.
+
+\item Prove or disprove:
+\begin{enumerate}
+\item If $\vec{x}$ is an eigenvector for $A$ and $B$, then $\vec{x}$ is an eigenvector for $AB$ and $BA$.
+\item If $\lambda$ is an eigenvalue for $A$ and $B$, then $\lambda^2$ is an eigenvalue for $AB$ and $BA$.
+\end{enumerate}
+
+\item  List all matrices that are similar to the identity matrix.
+
+\item Prove that the eigenvalues of a triangular matrix are the entries on the diagonal.
+
+\item The trace of a matrix is the sum of the diagonal entries.  Prove that the sum of the eigenvalues is equal to the trace.
+
+\item Suppose $\vec{x}_1$ and $\vec{x}_2$ are eigenvectors for $A$ with eigenvalues $\lambda_1$ and $\lambda_2$.  Under what conditions on $\lambda_1$ and $\lambda_2$ is $\vec{x}_1 + \vec{x}_2$ an eigenvector for $A$?
+
+\item We have seen how it is possible to find eigenvalues and eigenvectors of a matrix by finding roots of its characteristic polynomial.  In this problem you will show how to do the reverse:  You can find the roots of a polynomial by finding the eigenvectors of its ``companion matrix.'' 
+Let $p$ be the degree $n$ polynomial $p(z) = c_0 + c_1z + c_2z^2 + \cdots + z^n$. 
+
+Note that the coefficient of $z^n$ is 1.
+
+Define the companion matrix for $p$ to be the $n \times n$ matrix
+
+\[C=\begin{bmatrix}
+0 & 1 & 0 & \dots & 0 \\
+0 & 0 & 1 & \dots & 0 \\
+0 & \ddots & \ddots & \ddots & \vdots \\
+\vdots & \vdots & \ddots & 0 & 1 \\
+-c_0 & -c_1 & \dots & -c_{n-2} & -c_{n-1}
+\end{bmatrix}.\]
+
+\begin{enumerate}
+\item Show that $\det (C- \lambda I) = p(\lambda)$. 
+\item Prove that $z$ is a root of $p$ if and only if it is an eigenvalue of $C$ with eigenvector $(1, z, z^2, \ldots, z^{n-1})$.
+\item Explain how to determine the roots of any degree $n$ polynomial (even if its leading coefficient is not 1) if you know how to find eigenvectors for a matrix. [This is actually how some polynomial solvers proceed: Rather than solving the polynomial they instead find the eigenvectors of its companion matrix. ]
+
+\end{enumerate}
+
+
+
+\item Write Julia code to recursively calculate the determinant of any $n \times n$ matrix using cofactors.
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

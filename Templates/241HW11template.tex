@@ -1,0 +1,217 @@
+\documentclass[11pt]{article}
+
+\usepackage{epsfig}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{theorem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+% \usepackage{layout}% if you want to see the layout parameters
+% and now use \layout command in the body
+
+% This is the stuff for normal spacing
+\makeatletter
+ \setlength{\textwidth}{6in}
+ \setlength{\oddsidemargin}{0in}
+ \setlength{\evensidemargin}{0.5in}
+ \setlength{\topmargin}{0in}
+ \setlength{\textheight}{9in}
+ \setlength{\headheight}{0pt}
+ \setlength{\headsep}{0pt}
+ \setlength{\marginparwidth}{59pt}
+
+ \setlength{\parindent}{0pt}
+ \setlength{\parskip}{5pt plus 1pt}
+ \setlength{\theorempreskipamount}{5pt plus 1pt}
+ \setlength{\theorempostskipamount}{0pt}
+ \setlength{\abovedisplayskip}{8pt plus 3pt minus 6pt}
+
+
+\newenvironment{proof}{{\bf Proof:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofof}[1]{{\bf Proof of #1:  }}{\hfill\rule{2mm}{2mm}}
+\newenvironment{proofofnobox}[1]{{\bf#1:  }}{}
+\newenvironment{example}{{\bf Example:  }}{\hfill\rule{2mm}{2mm}}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+% math notation
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\Z}{\ensuremath{\mathbb Z}}
+\newcommand{\N}{\ensuremath{\mathbb N}}
+\newcommand{\F}{\ensuremath{\mathbb F}}
+\newcommand{\C}{\ensuremath{\mathbb C}}
+
+\newcommand{\size}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\ceil}[1]{\ensuremath{\left\lceil#1\right\rceil}}
+\newcommand{\floor}[1]{\ensuremath{\left\lfloor#1\right\rfloor}}
+
+
+% anupam's abbreviations
+\newcommand{\mnote}[1]{\normalmarginpar \marginpar{\tiny #1}}
+
+
+% vectors
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document begins here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\headings}{
+\large{\textbf{YOUR NAME GOES HERE \hfill 21-241 Fall 2019}\\
+\textbf{Homework 11 \hfill Due Tuesday, November 26}}\\
+\rule[0.1in]{\textwidth}{0.01in}
+%\thispagestyle{empty}
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\headings
+
+
+\begin{enumerate}
+\section*{Required Problems}
+
+
+\item Given an $m \times n$  matrix $A$ with (full format) singular value decomposition $A = U \Sigma V^T$, with 
+\[\Sigma = \begin{bmatrix} \sigma_1 & & & 0 \\ & \ddots & & 0 \\ & & \sigma_r & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix},\] define $\Sigma^+$ to be the $n \times m$ matrix
+\[\Sigma^+ = \begin{bmatrix} 1/\sigma_1 & & & 0 \\ & \ddots & & 0 \\ & & 1/\sigma_r & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix}.\] 
+
+
+Define the \textbf{pseudoinverse} of $A$, denoted $A^+$, to be $A^+ = V\Sigma^+ U^T$.
+
+
+\begin{enumerate}
+\item Compute $\Sigma^+ \Sigma$. How many rows and columns does it have?
+\item Compute $\Sigma \Sigma^+$. How many rows and columns does it have?
+\item How many rows and columns does $A^+$ have?
+\item Show that $AA^+ = U_rU_r^T$.
+\item Prove that if $A$ has full row rank, $AA^+ = I_m$.
+\item Show that $A^+A = V_rV_r^T$.
+\item Prove that if $A$ has full column rank, $A^+A = I_n$.
+\item Prove that if $A$ is invertible, $A^+ = A^{-1}$.
+\end{enumerate}
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+\item Pseudoinverse, projection, and least squares:
+\begin{enumerate}
+\item Prove that $AA^+$ is the projection matrix $P$ onto the column space of $A$. (Hint: The column space of $A$ is the same as the column space of $U_r$).
+\item Prove that $A^+A$ is the projection matrix $P$ onto the row space of $A$. (Hint: The row space of $A^T$ is the same as the column space of $V_r$).
+\item Consider the equation $A\vec{x} = \vec{b}$. Show that the best least squares solution $\hat{\vec{x}}$ to this equation is $\hat{\vec{x}} = A^+\vec{b}$.
+\end{enumerate}
+
+Note that when we discussed least squares solutions in Chapter 4, we required $A$ to have independent columns.  Using the SVD and pseudoinverse, we can now do projections and least squares approximation for any matrix.  For a matrix with dependent columns, there are an infinite number of solutions to the equation $A^TA\vec{x} = A^T\vec{b}$, and $A^+\vec{b}$ gives the shortest one (the contribution from $N(A)$ is $\vec{0}$).
+
+To compute the pseudoinverse of $A$ in Julia, use the command ``pinv(A)'' (using the LinearAlgebra package). See Julia code for HW 11 for examples.
+
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+\item Suppose $A$ has (full format) singular value decomposition $A = U \Sigma V^T$, where $\vec{u}_i$ is the $i$th column of $U$ and $\vec{v}_i$ is the $i$th column of $V$, as usual.  Prove that for $1 \le i \le r$, $A^T\vec{u}_i = \sigma_i\vec{v}_i$.  What is $A^T\vec{u}_i$ when $r< i \le m$?
+
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+
+\item In this problem we use PCA/SVD for data visualization.  We will use the famous data set of four measurement measurements on three types of iris flowers--see \begin{verbatim}https://en.wikipedia.org/wiki/Iris_flower_data_set\end{verbatim}  
+The first 50 rows are flowers of one species, the next 50 are flowers from a second species, and the last 50 are flowers of a third species.  For flower $i$, the $i$th row contains measurements of 
+\[\vec{x}_i^T = (\text{SepalLength}(i), \text{SepalWidth}(i), \text{PetalLength}(i), \text{PetalWidth}(i)),\]
+ along with its species in the fifth column. Since $\vec{x}_i \in \R^4$ for each $i$, each flower corresponds to a vector in $\R^4$.  We want to visualize this data, so we find the best least-squares projection onto a plane.  To do this, you should
+\begin{itemize}
+\item Import the data set.
+\item Center the data to create the $150 \times 4$ matrix $A$.
+\item Find the SVD for $A$, $A = U \Sigma V^T$. 
+\item Let $\vec{y}_1 = A \vec{v}_1$.  The $i$th component of the vector $\vec{y}_1$ contains the length of the projection of $\vec{x}_i$ onto $\vec{v}_1$. 
+\item Let $\vec{y}_2 = A \vec{v}_2$.  The $i$th component of the vector $\vec{y}_2$ contains the length of the projection of $\vec{x}_i$ onto $\vec{v}_2$. 
+\item Make a scatter plot of ($\vec{y}_1$, $\vec{y}_2$) where the color of each point corresponds to the species of the flower.
+\item What is a typical coefficient for $\vec{v}_1$ and $\vec{v}_2$ for a given flower of each species?
+\end{itemize}
+
+The ``Julia code for Homework 11'' notebook on Canvas shows how to complete each step.  Your hw does not need to include your code, but it should include your scatter plot.
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+\item Low rank approximation: In this problem we will find a low-rank approximation for a data matrix.  We will use a data set of heptathlon scores for 25 athletes in the heptathlon (7 events) from the 1988 Olympics (25 rows, 7 columns--note the original data matrix has nine columns, where the first column is the athlete's name and the last column is their cumulative score.  There are three races in the heptathlon (hurdles, 200m, 800m, columns 1, 4, and 7) so the lower scores for these events are better, while for the rest of the events (high jump, long jump, shot put, javelin) higher scores are better.  Similar to the previous problem, you first want to import the data set and center it to get the $25 \times 7$ data matrix $A$. The ``Julia code for Homework 11'' notebook on Canvas shows how to complete each step. 
+
+Let's see if doing PCA on $A$ tells us anything useful.
+\begin{itemize}
+\item Find the SVD for $A$, $A = U \Sigma V^T$. 
+\item What event explains almost all of the variance (find the element of $\vec{v}_1$ that is much larger than all the others).  
+\item The first few  principal components are each close to a standard basis vector (one component dominates.  What are these components telling us?
+\end{itemize}
+The example above shows how PCA is sensitive to the units of a data set.  To find some more useful information, let's create another matrix $B$ where we normalize each column so it is a unit vector. (Statistically, we are now working with with correlations, not covariances).
+
+Just to make our results easier to interpret for humans, let's also negate the entries in columns 1, 4, and 7 (note they are still unit vectors!) so that now for every column, a higher number corresponds to a better performance.
+\begin{itemize}
+\item Can you interpret the first couple of principal components? (Before looking at the data, I expected there might be one component corresponding to track events, one to jumping events, one to throwing events, etc.  But it doesn't work out that way.  The first principal component seems to correspond to general excellence (or deficiency) in all events except one.)
+\item Compute the rank 1 approximation for $B$.  Find the coefficient $c_1$ so that the first row of $B$ is approximated by $c_1\vec{v}_1$.
+\item Compute the rank 2 approximation for $B$.  Find the coefficient $c_2$ so that the first row of $B$ is approximated by $c_1\vec{v}_1 + c_2 \vec{v}_2$.
+\end{itemize}
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+\clearpage
+
+\item Generate a perspective drawing with the following specifications:
+\begin{itemize}
+\item Your image plane ia $2 \times 2$, containing 1,000,000 square pixels ($1000 \times 1000$).
+\item Your camera is 1 unit behind the center of the image plane.
+\end{itemize}
+
+\begin{enumerate}
+\item What is your camera basis?
+\item Use the procedure outlined in class to find the ``camera coordinates'' and pixel locations for the following points (camera at the origin)
+\[(1,1,5), (-1, 1, 5), (-1,-1,5), (1,-1,5), (1,1,8), (-1, 1, 8), (-1,-1,8), (1,-1,8)\] 
+\item Plot the image of these eight points.  Note they form the corners of a box.  How many sides of the box could you see in this rendering if it were solid and opaque?
+\item Plot the image of the same box in two other locations in space, one where two sides of the box are visible, and one where three sides of the box are visible.
+\end{enumerate}
+
+
+ \begin{sol}
+Write your solution here.
+\end{sol}
+
+
+\end{enumerate}
+
+
+
+\end{document}
